@@ -1006,10 +1006,8 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
 
     function Ga(e) {
         var ts = new Date();
-
         var s = Gt(ts);
         var r = Gi(s, 0, La.length - 1);
-
         return r;
     }
     var Ba = "abcdefghijklmnopqrstuvwxyz",

@@ -979,6 +979,20 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
     }
     var Ha = new Date(2021, 5, 19, 0, 0, 0, 0);
 
+    function Gt(ds) {
+        var d = new Date(ds.getMonth() + "/" + ds.getDate() + "/" + ds.getFullYear());
+
+        return d.getTime();
+    }
+
+    function Gi(s, m, Ma) {
+        m = m || 0;
+        Ma = Ma || 1;
+        s = (s * 9301 + 49297) % 233280;
+        var r = s / 233280;
+        return parseInt(m + r * (Ma - m));
+    }
+
     function Na(e, a) {
         var s = new Date(e),
             t = new Date(a).setHours(0, 0, 0, 0) - s.setHours(0, 0, 0, 0);
@@ -991,7 +1005,12 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
     }
 
     function Ga(e) {
-        return Na(Ha, e)
+        var ts = new Date();
+
+        var s = Gt(ts);
+        var r = Gi(s, 0, La.length - 1);
+
+        return r;
     }
     var Ba = "abcdefghijklmnopqrstuvwxyz",
         Fa = [].concat(g(Ba.split("").slice(13)), g(Ba.split("").slice(0, 13)));
